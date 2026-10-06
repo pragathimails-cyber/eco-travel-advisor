@@ -1,0 +1,6 @@
+# Action server endpoint. Inside Docker Compose the hostname is the service name.
+action_endpoint:
+  url: ${ACTION_ENDPOINT_URL}
+# In-memory tracker store: no conversation data is persisted (GDPR minimisation).
+tracker_store:
+  type: InMemoryTrackerStore

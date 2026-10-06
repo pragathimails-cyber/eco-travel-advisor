@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------------------
+# docker compose up --build
+#   rasa     -> http://localhost:5005  (REST channel used by the frontend)
+#   frontend -> http://localhost:3000
+#   actions  -> internal network only (port 5055 is NOT published)
+# -----------------------------------------------------------------------------
+services:
+  rasa:
+    build: { context: ., dockerfile: Dockerfile.rasa }
+    ports: ["5005:5005"]
+    environment:
+      ACTION_ENDPOINT_URL: http://actions:5055/webhook
+    depends_on: [actions]
+    networks: [internal, public]
+    restart: unless-stopped
+
+  actions:
+    build: { context: ., dockerfile: Dockerfile.actions }
+    env_file: .env            # API keys live here, never in the image or Git
+    expose: ["5055"]
+    networks: [internal]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:5055/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    image: nginx:1.27-alpine
+    ports: ["3000:80"]
+    volumes: ["./frontend:/usr/share/nginx/html:ro"]
+    networks: [public]
+    restart: unless-stopped
+
+networks:
+  internal: { internal: true }
+  public: {}

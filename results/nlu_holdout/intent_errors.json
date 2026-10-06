@@ -1,0 +1,162 @@
+[
+  {
+    "text": "forget me",
+    "intent": "forget_me",
+    "intent_prediction": {
+      "name": "request_human",
+      "confidence": 0.3432040512561798
+    }
+  },
+  {
+    "text": "activities near my hotel",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "search_hotels",
+      "confidence": 0.7801676988601685
+    }
+  },
+  {
+    "text": "how do I fix my laptop?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "forget_me",
+      "confidence": 0.4548174738883972
+    }
+  },
+  {
+    "text": "what is the meaning of life",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon",
+      "confidence": 0.7884639501571655
+    }
+  },
+  {
+    "text": "I'm done for now",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.4734741747379303
+    }
+  },
+  {
+    "text": "have a nice day",
+    "intent": "goodbye",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2555215060710907
+    }
+  },
+  {
+    "text": "tell me the environmental impact",
+    "intent": "ask_carbon",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.38659438490867615
+    }
+  },
+  {
+    "text": "how many emissions does a flight to Rome create?",
+    "intent": "ask_carbon",
+    "intent_prediction": {
+      "name": "plan_trip",
+      "confidence": 0.622344970703125
+    }
+  },
+  {
+    "text": "I need expert help",
+    "intent": "request_human",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7335601449012756
+    }
+  },
+  {
+    "text": "transfer me to a specialist",
+    "intent": "request_human",
+    "intent_prediction": {
+      "name": "plan_trip",
+      "confidence": 0.2654651999473572
+    }
+  },
+  {
+    "text": "escalate this please",
+    "intent": "request_human",
+    "intent_prediction": {
+      "name": "forget_me",
+      "confidence": 0.349798321723938
+    }
+  },
+  {
+    "text": "hiya",
+    "intent": "greet",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.2632664144039154
+    }
+  },
+  {
+    "text": "go ahead",
+    "intent": "affirm",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.317148357629776
+    }
+  },
+  {
+    "text": "how should I travel to Berlin?",
+    "intent": "compare_transport",
+    "intent_prediction": {
+      "name": "search_hotels",
+      "confidence": 0.6690660119056702
+    }
+  },
+  {
+    "text": "rail vs flight",
+    "intent": "compare_transport",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.43928489089012146
+    }
+  },
+  {
+    "text": "I want to go to Copenhagen from Hamburg",
+    "intent": "plan_trip",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.3014058768749237
+    }
+  },
+  {
+    "text": "I want to travel somewhere but keep my footprint low",
+    "intent": "plan_trip",
+    "intent_prediction": {
+      "name": "compare_transport",
+      "confidence": 0.951689600944519
+    }
+  },
+  {
+    "text": "I'm thinking of travelling to Berlin next month",
+    "intent": "plan_trip",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.9989780187606812
+    }
+  },
+  {
+    "text": "as green as possible",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5232614874839783
+    }
+  },
+  {
+    "text": "balanced is fine",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5350270867347717
+    }
+  }
+]

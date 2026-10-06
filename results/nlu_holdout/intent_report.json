@@ -1,0 +1,148 @@
+{
+  "greet": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3,
+    "confused_with": {
+      "inform": 1
+    }
+  },
+  "ask_activities": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "search_hotels": 1
+    }
+  },
+  "ask_offset": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "ask_carbon": {
+    "precision": 0.5,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.4,
+    "support": 3,
+    "confused_with": {
+      "plan_trip": 1,
+      "inform": 1
+    }
+  },
+  "deny": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "plan_trip": {
+    "precision": 0.5,
+    "recall": 0.4,
+    "f1-score": 0.4444444444444445,
+    "support": 5,
+    "confused_with": {
+      "inform": 2,
+      "compare_transport": 1
+    }
+  },
+  "compare_transport": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "search_hotels": 1,
+      "inform": 1
+    }
+  },
+  "forget_me": {
+    "precision": 0.3333333333333333,
+    "recall": 0.5,
+    "f1-score": 0.4,
+    "support": 2,
+    "confused_with": {
+      "request_human": 1
+    }
+  },
+  "out_of_scope": {
+    "precision": 0.5,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.4,
+    "support": 3,
+    "confused_with": {
+      "forget_me": 1,
+      "ask_carbon": 1
+    }
+  },
+  "request_human": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3,
+    "confused_with": {
+      "plan_trip": 1,
+      "greet": 1,
+      "forget_me": 1
+    }
+  },
+  "inform": {
+    "precision": 0.4,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.5,
+    "support": 6,
+    "confused_with": {
+      "affirm": 2
+    }
+  },
+  "search_hotels": {
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {}
+  },
+  "affirm": {
+    "precision": 0.5,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.5714285714285715,
+    "support": 3,
+    "confused_with": {
+      "goodbye": 1
+    }
+  },
+  "goodbye": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "out_of_scope": 1,
+      "inform": 1
+    }
+  },
+  "accuracy": 0.5,
+  "macro avg": {
+    "precision": 0.4928571428571429,
+    "recall": 0.5047619047619049,
+    "f1-score": 0.4797052154195011,
+    "support": 40
+  },
+  "weighted avg": {
+    "precision": 0.47666666666666674,
+    "recall": 0.5,
+    "f1-score": 0.4700793650793651,
+    "support": 40
+  },
+  "micro avg": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1-score": 0.5,
+    "support": 40
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "text": "activities near my hotel",
+    "intent": "ask_activities",
+    "intent_prediction": {
+      "name": "search_hotels",
+      "confidence": 0.6283686757087708
+    }
+  },
+  {
+    "text": "how do I fix my laptop?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "forget_me",
+      "confidence": 0.4855460524559021
+    }
+  },
+  {
+    "text": "what is the meaning of life",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "ask_carbon",
+      "confidence": 0.9483845233917236
+    }
+  },
+  {
+    "text": "I want to travel somewhere but keep my footprint low",
+    "intent": "plan_trip",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.6688560247421265
+    }
+  },
+  {
+    "text": "I'm thinking of travelling to Berlin next month",
+    "intent": "plan_trip",
+    "intent_prediction": {
+      "name": "inform",
+      "confidence": 0.7640330195426941
+    }
+  },
+  {
+    "text": "as green as possible",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.3571414053440094
+    }
+  },
+  {
+    "text": "balanced is fine",
+    "intent": "inform",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.3742285966873169
+    }
+  }
+]

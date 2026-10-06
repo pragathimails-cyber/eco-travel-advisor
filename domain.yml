@@ -1,0 +1,159 @@
+# =============================================================================
+# domain.yml - intents, entities, slots, forms, responses and actions
+# =============================================================================
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - plan_trip
+  - inform
+  - compare_transport
+  - ask_carbon
+  - ask_offset
+  - search_hotels
+  - ask_activities
+  - request_human
+  - forget_me
+  - out_of_scope
+
+entities:
+  - origin
+  - destination
+  - budget
+  - preference_level
+  - transport_mode
+
+# Slots persist user-provided values across turns.
+slots:
+  destination:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: destination
+  origin:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: origin
+      # Typed answer when the bot has just asked for the origin.
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: origin
+  travel_dates:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: travel_dates
+  budget:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: budget
+      - type: from_text
+        conditions:
+          - active_loop: trip_form
+            requested_slot: budget
+  preference_level:
+    type: categorical
+    values: [low, medium, high]
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: preference_level
+  transport_mode:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: transport_mode
+  # Location shared by the browser (GPS) or typed manually; set by the frontend.
+  user_location:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  fallback_count:
+    type: float
+    initial_value: 0
+    influence_conversation: false
+    mappings:
+      - type: custom
+  handover_active:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+      - type: custom
+  last_options:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+forms:
+  trip_form:
+    required_slots:
+      - destination
+      - origin
+      - travel_dates
+      - budget
+      - preference_level
+
+responses:
+  utter_greet:
+    - text: "Hi! I'm your Eco-Travel Advisor. I help you plan trips with a lower carbon footprint. Privacy note: I only use your trip details for this conversation and don't store them afterwards. Type 'forget me' at any time to clear them."
+      buttons:
+        - title: "Plan a trip"
+          payload: "/plan_trip"
+        - title: "Compare transport"
+          payload: "/compare_transport"
+        - title: "Talk to an advisor"
+          payload: "/request_human"
+  utter_ask_origin:
+    - text: "Where will you be travelling from? You can type a town, or share your location."
+  utter_ask_travel_dates:
+    - text: "Which dates are you thinking of? (e.g. 14 to 16 November)"
+  utter_ask_budget:
+    - text: "Roughly what is your total budget in euros for transport and accommodation?"
+  utter_ask_preference_level:
+    - text: "How important is sustainability compared with price?"
+      buttons:
+        - title: "High - greenest option"
+          payload: '/inform{{"preference_level":"high"}}'
+        - title: "Medium - balanced"
+          payload: '/inform{{"preference_level":"medium"}}'
+        - title: "Low - price first"
+          payload: '/inform{{"preference_level":"low"}}'
+  utter_goodbye:
+    - text: "Have a great, low-carbon trip! Goodbye."
+  utter_out_of_scope:
+    - text: "Sorry, I can only help with sustainable travel planning. Would you like to plan a trip?"
+      buttons:
+        - title: "Plan a trip"
+          payload: "/plan_trip"
+
+actions:
+  - validate_trip_form
+  - action_ask_destination
+  - action_recommend_trip
+  - action_search_hotels
+  - action_show_activities
+  - action_show_offsets
+  - action_explain_carbon
+  - action_handover
+  - action_forget_me
+  - action_default_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false

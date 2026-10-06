@@ -1,0 +1,86 @@
+# =============================================================================
+# data/rules.yml - deterministic conversation behaviour
+# =============================================================================
+version: "3.1"
+rules:
+
+- rule: Greet and show privacy notice
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Activate trip intake form
+  steps:
+  - intent: plan_trip
+  - action: trip_form
+  - active_loop: trip_form
+
+- rule: Compare transport also runs intake (skips filled slots)
+  steps:
+  - intent: compare_transport
+  - action: trip_form
+  - active_loop: trip_form
+
+- rule: Submit trip form and recommend
+  condition:
+  - active_loop: trip_form
+  steps:
+  - action: trip_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_recommend_trip
+
+- rule: Explain carbon scores
+  steps:
+  - intent: ask_carbon
+  - action: action_explain_carbon
+
+- rule: Show offsets
+  steps:
+  - intent: ask_offset
+  - action: action_show_offsets
+
+- rule: Show hotels
+  steps:
+  - intent: search_hotels
+  - action: action_search_hotels
+
+- rule: Show activities
+  steps:
+  - intent: ask_activities
+  - action: action_show_activities
+
+- rule: Human handover on request
+  steps:
+  - intent: request_human
+  - action: action_handover
+
+- rule: Human handover even inside the form
+  condition:
+  - active_loop: trip_form
+  steps:
+  - intent: request_human
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_handover
+
+- rule: GDPR erasure
+  steps:
+  - intent: forget_me
+  - action: action_forget_me
+
+- rule: Out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Two-stage fallback on low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: action_default_fallback

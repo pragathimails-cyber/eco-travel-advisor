@@ -1,0 +1,59 @@
+# =============================================================================
+# config.yml - NLU pipeline and dialogue policies for the Eco-Travel Advisor
+# -----------------------------------------------------------------------------
+# Primary pipeline: spaCy tokenizer + featurizers feeding the DIETClassifier.
+# This is the CPU-friendly default required by the brief. An optional
+# DistilBERT variant is provided in config_distilbert.yml.
+# =============================================================================
+recipe: default.v1
+language: en
+assistant_id: eco-travel-advisor
+
+pipeline:
+  # Loads the spaCy language model (dense word vectors).
+  - name: SpacyNLP
+    model: en_core_web_md
+  # Splits text into tokens using spaCy.
+  - name: SpacyTokenizer
+  # Dense sentence/token features from spaCy word vectors.
+  - name: SpacyFeaturizer
+  # Regex + lookup-table features (city names, currency amounts).
+  - name: RegexFeaturizer
+    case_sensitive: false
+  # Sparse lexical/syntactic features (prefix, suffix, casing, POS).
+  - name: LexicalSyntacticFeaturizer
+  # Bag-of-words features.
+  - name: CountVectorsFeaturizer
+  # Character n-grams make the model robust to typos ("trian", "Pariss").
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  # Joint intent classification + entity extraction.
+  - name: DIETClassifier
+    epochs: 100
+    constrain_similarities: true
+    # Writes per-epoch metrics so training progress can be plotted.
+    tensorboard_log_directory: ./results/tensorboard
+    tensorboard_log_level: epoch
+    evaluate_on_number_of_examples: 0
+  # Maps synonyms ("eco-friendly", "very green") to canonical values.
+  - name: EntitySynonymMapper
+  # Triggers nlu_fallback when confidence is low or two intents are too close.
+  - name: FallbackClassifier
+    threshold: 0.6
+    ambiguity_threshold: 0.1
+
+policies:
+  # Exact matches against training stories.
+  - name: MemoizationPolicy
+  # Deterministic rules (greeting, form handling, fallback, handover).
+  - name: RulePolicy
+    core_fallback_threshold: 0.3
+    core_fallback_action_name: action_default_fallback
+    enable_fallback_prediction: true
+  # Transformer policy that generalises to unseen conversation paths.
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 60
+    constrain_similarities: true

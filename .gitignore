@@ -1,0 +1,13 @@
+.env
+models/
+results/tensorboard*/
+train_test_split/
+__pycache__/
+*.pyc
+.pytest_cache/
+.rasa/
+venv/
+.venv/
+*.db
+.DS_Store
+.claude/settings.local.json

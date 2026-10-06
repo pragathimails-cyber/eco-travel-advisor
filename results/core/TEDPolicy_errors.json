@@ -1,0 +1,50 @@
+[
+  {
+    "text": "I have a meeting in Brussels, help me get there sustainably",
+    "entities": [
+      {
+        "start": 20,
+        "end": 28,
+        "value": "Brussels",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "plan a trip to Paris",
+    "entities": [
+      {
+        "start": 15,
+        "end": 20,
+        "value": "Paris",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "things to do in Lisbon",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "Lisbon",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "should I take the train or fly?",
+    "entities": [
+      {
+        "start": 18,
+        "end": 23,
+        "value": "train",
+        "entity": "transport_mode"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

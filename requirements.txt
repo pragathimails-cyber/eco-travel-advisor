@@ -1,0 +1,8 @@
+# Python 3.10 required by Rasa 3.6
+rasa==3.6.20
+rasa-sdk==3.6.2
+requests>=2.31
+pytest>=7.4
+setuptools<70
+# spaCy model used by the NLU pipeline:
+# pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.4.1/en_core_web_md-3.4.1-py3-none-any.whl

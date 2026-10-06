@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+  Eco-Travel Advisor - React chat UI (no build step).
+  Talks to Rasa through the REST channel: POST {RASA_URL}/webhooks/rest/webhook
+  React is vendored locally in /vendor so the page works offline and inside Docker.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eco-Travel Advisor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Rasa server URL; overridden in Docker via config.js -->
+  <script src="config.js"></script>
+  <script src="vendor/react.production.min.js"></script>
+  <script src="vendor/react-dom.production.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

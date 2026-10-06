@@ -1,0 +1,11 @@
+# Rasa server image: trains the model at build time so the container starts fast.
+FROM rasa/rasa:3.6.20-full
+WORKDIR /app
+USER root
+COPY config.yml domain.yml endpoints.yml credentials.yml ./
+COPY data ./data
+RUN rasa train --fixed-model-name eco-travel
+USER 1001
+EXPOSE 5005
+# --cors should be restricted to the frontend origin in production.
+CMD ["run", "--enable-api", "--cors", "*", "--port", "5005"]

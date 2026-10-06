@@ -1,0 +1,154 @@
+[
+  {
+    "text": "how many emissions does a flight to Rome create?",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "value": "plane",
+        "entity": "transport_mode"
+      },
+      {
+        "start": 36,
+        "end": 40,
+        "value": "Rome",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 36,
+        "end": 40,
+        "confidence_entity": 0.9930899739265442,
+        "value": "Rome",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "rail vs flight",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "train",
+        "entity": "transport_mode"
+      },
+      {
+        "start": 8,
+        "end": 14,
+        "value": "plane",
+        "entity": "transport_mode"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to go to Copenhagen from Hamburg",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "value": "Copenhagen",
+        "entity": "destination"
+      },
+      {
+        "start": 32,
+        "end": 39,
+        "value": "Hamburg",
+        "entity": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 16,
+        "end": 26,
+        "confidence_entity": 0.9972503781318665,
+        "value": "Copenhagen",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "destination",
+        "start": 32,
+        "end": 39,
+        "confidence_entity": 0.9594730734825134,
+        "value": "Hamburg",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I want to travel somewhere but keep my footprint low",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "preference_level",
+        "start": 49,
+        "end": 52,
+        "confidence_entity": 0.7349281907081604,
+        "value": "low",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "12/05 to 15/05",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "budget",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.6567482948303223,
+        "value": "12/05",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "budget",
+        "start": 9,
+        "end": 14,
+        "confidence_entity": 0.6692643165588379,
+        "value": "15/05",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "as green as possible",
+    "entities": [
+      {
+        "start": 0,
+        "end": 20,
+        "value": "high",
+        "entity": "preference_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "balanced is fine",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "medium",
+        "entity": "preference_level"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

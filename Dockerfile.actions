@@ -1,0 +1,8 @@
+# Action server image (custom Python actions).
+FROM rasa/rasa-sdk:3.6.2
+WORKDIR /app
+USER root
+COPY actions ./actions
+USER 1001
+EXPOSE 5055
+CMD ["start", "--actions", "actions"]

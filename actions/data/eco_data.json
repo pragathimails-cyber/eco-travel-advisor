@@ -1,0 +1,308 @@
+{
+  "_meta": {
+    "description": "Curated static dataset used where no reliable free API exists (eco-certified hotels, offsets, activities) and as fallback when live APIs fail. Hotel, activity and offset entries are ILLUSTRATIVE SAMPLE DATA for the prototype; certification schemes named are real schemes but the listed properties must be verified against each scheme's public register before production use.",
+    "last_reviewed": "2026-10-01",
+    "emission_factor_source": "Average UK government conversion factors (passenger-km), rounded; used only when the Climatiq API is unavailable."
+  },
+  "fallback_emission_factors_kg_per_pkm": {
+    "train": 0.035,
+    "coach": 0.027,
+    "car": 0.17,
+    "plane": 0.246,
+    "carshare": 0.085
+  },
+  "price_model_eur": {
+    "train": {
+      "per_km": 0.11,
+      "fixed": 10
+    },
+    "coach": {
+      "per_km": 0.06,
+      "fixed": 5
+    },
+    "car": {
+      "per_km": 0.2,
+      "fixed": 0
+    },
+    "plane": {
+      "per_km": 0.07,
+      "fixed": 60
+    },
+    "carshare": {
+      "per_km": 0.1,
+      "fixed": 0
+    }
+  },
+  "speed_kmh": {
+    "train": 130,
+    "coach": 70,
+    "car": 85,
+    "plane": 700,
+    "carshare": 85
+  },
+  "overhead_hours": {
+    "train": 0.5,
+    "coach": 0.3,
+    "car": 0.0,
+    "plane": 3.0,
+    "carshare": 0.3
+  },
+  "popular_destinations": [
+    "Paris",
+    "Amsterdam",
+    "Berlin",
+    "Scottish Highlands",
+    "Lisbon",
+    "Vienna"
+  ],
+  "cities": {
+    "paris": {
+      "name": "Paris",
+      "lat": 48.8566,
+      "lng": 2.3522,
+      "iata": "PAR"
+    },
+    "london": {
+      "name": "London",
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "iata": "LON"
+    },
+    "berlin": {
+      "name": "Berlin",
+      "lat": 52.52,
+      "lng": 13.405,
+      "iata": "BER"
+    },
+    "amsterdam": {
+      "name": "Amsterdam",
+      "lat": 52.3676,
+      "lng": 4.9041,
+      "iata": "AMS"
+    },
+    "rotterdam": {
+      "name": "Rotterdam",
+      "lat": 51.9244,
+      "lng": 4.4777,
+      "iata": "RTM"
+    },
+    "brussels": {
+      "name": "Brussels",
+      "lat": 50.8503,
+      "lng": 4.3517,
+      "iata": "BRU"
+    },
+    "lisbon": {
+      "name": "Lisbon",
+      "lat": 38.7223,
+      "lng": -9.1393,
+      "iata": "LIS"
+    },
+    "vienna": {
+      "name": "Vienna",
+      "lat": 48.2082,
+      "lng": 16.3738,
+      "iata": "VIE"
+    },
+    "rome": {
+      "name": "Rome",
+      "lat": 41.9028,
+      "lng": 12.4964,
+      "iata": "ROM"
+    },
+    "edinburgh": {
+      "name": "Edinburgh",
+      "lat": 55.9533,
+      "lng": -3.1883,
+      "iata": "EDI"
+    },
+    "manchester": {
+      "name": "Manchester",
+      "lat": 53.4808,
+      "lng": -2.2426,
+      "iata": "MAN"
+    },
+    "copenhagen": {
+      "name": "Copenhagen",
+      "lat": 55.6761,
+      "lng": 12.5683,
+      "iata": "CPH"
+    },
+    "hamburg": {
+      "name": "Hamburg",
+      "lat": 53.5511,
+      "lng": 9.9937,
+      "iata": "HAM"
+    },
+    "leeds": {
+      "name": "Leeds",
+      "lat": 53.8008,
+      "lng": -1.5491,
+      "iata": null
+    },
+    "york": {
+      "name": "York",
+      "lat": 53.96,
+      "lng": -1.0873,
+      "iata": null
+    },
+    "scottish highlands": {
+      "name": "Scottish Highlands",
+      "lat": 57.4778,
+      "lng": -4.2247,
+      "iata": "INV",
+      "rural": true,
+      "public_transport_last_leg": false
+    }
+  },
+  "hotels": {
+    "paris": [
+      {
+        "name": "Canal Saint-Martin Eco Hotel (sample)",
+        "certification": "Green Key",
+        "price_per_night": 135,
+        "eco_tier": 3,
+        "accessible": true,
+        "why": "Renewable electricity, no single-use plastics, 5 min walk to Gare du Nord."
+      },
+      {
+        "name": "Montmartre Green Hostel (sample)",
+        "certification": "EU Ecolabel",
+        "price_per_night": 55,
+        "eco_tier": 3,
+        "accessible": false,
+        "why": "Solar water heating and a zero-waste breakfast."
+      },
+      {
+        "name": "Left Bank Boutique (sample)",
+        "certification": "Green Key",
+        "price_per_night": 190,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Water-saving fittings and local seasonal menu."
+      }
+    ],
+    "berlin": [
+      {
+        "name": "Spree Riverside Eco Hotel (sample)",
+        "certification": "EU Ecolabel",
+        "price_per_night": 110,
+        "eco_tier": 3,
+        "accessible": true,
+        "why": "Green roof, heat recovery and bike hire."
+      },
+      {
+        "name": "Kreuzberg Green Hostel (sample)",
+        "certification": "Green Key",
+        "price_per_night": 45,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Certified energy management, near U-Bahn."
+      },
+      {
+        "name": "Mitte Business Suites (sample)",
+        "certification": "Green Key",
+        "price_per_night": 165,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Meeting rooms with renewable electricity."
+      }
+    ],
+    "amsterdam": [
+      {
+        "name": "Canal Side Eco Lodge (sample)",
+        "certification": "Green Key",
+        "price_per_night": 150,
+        "eco_tier": 3,
+        "accessible": true,
+        "why": "Heat pumps and 100% wind power."
+      },
+      {
+        "name": "Noord Studio Hostel (sample)",
+        "certification": "EU Ecolabel",
+        "price_per_night": 60,
+        "eco_tier": 2,
+        "accessible": false,
+        "why": "Upcycled interiors and free ferry access."
+      }
+    ],
+    "scottish highlands": [
+      {
+        "name": "Glen Eco Bothy Lodge (sample)",
+        "certification": "Green Tourism Gold",
+        "price_per_night": 95,
+        "eco_tier": 3,
+        "accessible": false,
+        "why": "Off-grid hydro power and rewilding project on site."
+      },
+      {
+        "name": "Lochside Farm Stay (sample)",
+        "certification": "Green Tourism Silver",
+        "price_per_night": 80,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Locally sourced food and EV charging."
+      }
+    ],
+    "_default": [
+      {
+        "name": "City Centre Green Hotel (sample)",
+        "certification": "Green Key",
+        "price_per_night": 120,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Certified energy and waste management."
+      },
+      {
+        "name": "Station Eco Hostel (sample)",
+        "certification": "EU Ecolabel",
+        "price_per_night": 50,
+        "eco_tier": 2,
+        "accessible": true,
+        "why": "Close to rail links, low-energy building."
+      }
+    ]
+  },
+  "activities": {
+    "paris": [
+      "Guided cycling tour along the Seine",
+      "Organic market walk in Le Marais",
+      "Community-run street art tour in Belleville"
+    ],
+    "berlin": [
+      "Tempelhof Field bike loop",
+      "Zero-waste food tour in Neukölln",
+      "Urban gardening workshop at Prinzessinnengarten"
+    ],
+    "scottish highlands": [
+      "Ranger-led rewilding walk",
+      "Community-owned distillery visit by bus",
+      "Gaelic storytelling evening in a village hall"
+    ],
+    "_default": [
+      "Self-guided walking heritage trail",
+      "Local farmers' market",
+      "Public-transport day pass city tour"
+    ]
+  },
+  "offsets": [
+    {
+      "name": "Community cookstoves programme (sample)",
+      "standard": "Gold Standard",
+      "price_per_tonne_eur": 18,
+      "type": "Avoided emissions"
+    },
+    {
+      "name": "Peatland restoration project (sample)",
+      "standard": "Peatland Code",
+      "price_per_tonne_eur": 25,
+      "type": "Removal / avoided loss"
+    },
+    {
+      "name": "Wind power project (sample)",
+      "standard": "Verra VCS",
+      "price_per_tonne_eur": 9,
+      "type": "Avoided emissions"
+    }
+  ]
+}

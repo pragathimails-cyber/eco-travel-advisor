@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.20, pytest-8.4.2, pluggy-1.6.0 -- /home/claude/rasaenv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/claude/eco-travel-advisor
+collecting ... collected 19 items
+
+tests/test_actions.py::test_classify_carbon_bands PASSED                 [  5%]
+tests/test_actions.py::test_normalise_equal_values PASSED                [ 10%]
+tests/test_actions.py::test_high_preference_never_ranks_flight_first PASSED [ 15%]
+tests/test_actions.py::test_preferred_mode_raises_score PASSED           [ 21%]
+tests/test_actions.py::test_score_options_empty PASSED                   [ 26%]
+tests/test_actions.py::test_hotels_over_budget_penalised PASSED          [ 31%]
+tests/test_actions.py::test_request_returns_none_on_timeout PASSED       [ 36%]
+tests/test_actions.py::test_climatiq_success PASSED                      [ 42%]
+tests/test_actions.py::test_climatiq_malformed_response PASSED           [ 47%]
+tests/test_actions.py::test_amadeus_without_credentials_returns_none PASSED [ 52%]
+tests/test_actions.py::test_recommend_uses_fallback_when_apis_fail PASSED [ 57%]
+tests/test_actions.py::test_recommend_missing_slots PASSED               [ 63%]
+tests/test_actions.py::test_validate_budget_rejects_text PASSED          [ 68%]
+tests/test_actions.py::test_validate_destination_suggests_typo_fix PASSED [ 73%]
+tests/test_actions.py::test_handover_package_contains_context PASSED     [ 78%]
+tests/test_actions.py::test_handover_webhook_failure_message PASSED      [ 84%]
+tests/test_actions.py::test_two_stage_fallback[0-Did you mean] PASSED    [ 89%]
+tests/test_actions.py::test_two_stage_fallback[1-choose one option] PASSED [ 94%]
+tests/test_actions.py::test_third_fallback_escalates PASSED              [100%]
+
+============================== 19 passed in 0.51s ==============================

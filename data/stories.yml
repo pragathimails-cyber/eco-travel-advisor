@@ -1,0 +1,47 @@
+# =============================================================================
+# data/stories.yml - multi-turn paths learned by TEDPolicy
+# =============================================================================
+version: "3.1"
+stories:
+
+- story: City break - full intake then hotels
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: plan_trip
+    entities:
+    - destination: Paris
+  - action: trip_form
+  - active_loop: trip_form
+  - active_loop: null
+  - action: action_recommend_trip
+  - intent: search_hotels
+  - action: action_search_hotels
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Business trip - recommend, offset, then human
+  steps:
+  - intent: plan_trip
+    entities:
+    - destination: Berlin
+  - action: trip_form
+  - active_loop: trip_form
+  - active_loop: null
+  - action: action_recommend_trip
+  - intent: ask_offset
+  - action: action_show_offsets
+  - intent: request_human
+  - action: action_handover
+
+- story: Rural eco tour - activities after recommendation
+  steps:
+  - intent: plan_trip
+  - action: trip_form
+  - active_loop: trip_form
+  - active_loop: null
+  - action: action_recommend_trip
+  - intent: ask_activities
+  - action: action_show_activities
+  - intent: ask_carbon
+  - action: action_explain_carbon

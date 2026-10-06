@@ -1,0 +1,108 @@
+# =============================================================================
+# tests/test_stories.yml - dialogue tests run with `rasa test core`
+# Covers happy paths, preference variations, interruptions and fallback.
+# =============================================================================
+version: "3.1"
+stories:
+
+- story: greet then plan city break with all slots in one message
+  steps:
+  - user: |
+      hello
+    intent: greet
+  - action: utter_greet
+  - user: |
+      plan a trip to [Paris](destination)
+    intent: plan_trip
+  - action: trip_form
+  - active_loop: trip_form
+
+- story: explicit human request
+  steps:
+  - user: |
+      I want to talk to a human
+    intent: request_human
+  - action: action_handover
+
+- story: ask about offsets
+  steps:
+  - user: |
+      can I offset my emissions?
+    intent: ask_offset
+  - action: action_show_offsets
+
+- story: hotels then goodbye
+  steps:
+  - user: |
+      show me eco hotels
+    intent: search_hotels
+  - action: action_search_hotels
+  - user: |
+      bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: carbon explanation
+  steps:
+  - user: |
+      what does the colour on the card mean?
+    intent: ask_carbon
+  - action: action_explain_carbon
+
+- story: activities
+  steps:
+  - user: |
+      things to do in [Lisbon](destination)
+    intent: ask_activities
+  - action: action_show_activities
+
+- story: out of scope is redirected
+  steps:
+  - user: |
+      tell me a joke
+    intent: out_of_scope
+  - action: utter_out_of_scope
+
+- story: GDPR erasure
+  steps:
+  - user: |
+      delete my data
+    intent: forget_me
+  - action: action_forget_me
+
+- story: compare transport starts intake
+  steps:
+  - user: |
+      should I take the [train](transport_mode) or fly?
+    intent: compare_transport
+  - action: trip_form
+  - active_loop: trip_form
+
+- story: unclear message triggers fallback
+  steps:
+  - user: |
+      asdkjh qwe
+    intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: business trip variation (unseen phrasing)
+  steps:
+  - user: |
+      I have a meeting in [Brussels](destination), help me get there sustainably
+    intent: plan_trip
+  - action: trip_form
+  - active_loop: trip_form
+
+- story: handover inside form
+  steps:
+  - user: |
+      plan a trip
+    intent: plan_trip
+  - action: trip_form
+  - active_loop: trip_form
+  - user: |
+      get me a real person
+    intent: request_human
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: action_handover

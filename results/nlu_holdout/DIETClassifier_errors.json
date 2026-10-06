@@ -1,0 +1,101 @@
+[
+  {
+    "text": "how many emissions does a flight to Rome create?",
+    "entities": [
+      {
+        "start": 26,
+        "end": 32,
+        "value": "plane",
+        "entity": "transport_mode"
+      },
+      {
+        "start": 36,
+        "end": 40,
+        "value": "Rome",
+        "entity": "destination"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 36,
+        "end": 40,
+        "confidence_entity": 0.9724675416946411,
+        "value": "Rome",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "rail vs flight",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "train",
+        "entity": "transport_mode"
+      },
+      {
+        "start": 8,
+        "end": 14,
+        "value": "plane",
+        "entity": "transport_mode"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to go to Copenhagen from Hamburg",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "value": "Copenhagen",
+        "entity": "destination"
+      },
+      {
+        "start": 32,
+        "end": 39,
+        "value": "Hamburg",
+        "entity": "origin"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "destination",
+        "start": 32,
+        "end": 39,
+        "confidence_entity": 0.9253786206245422,
+        "value": "Hamburg",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "as green as possible",
+    "entities": [
+      {
+        "start": 0,
+        "end": 20,
+        "value": "high",
+        "entity": "preference_level"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "balanced is fine",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "medium",
+        "entity": "preference_level"
+      }
+    ],
+    "predicted_entities": []
+  }
+]
